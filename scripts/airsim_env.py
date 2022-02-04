@@ -2,7 +2,7 @@ from . import airsim
 import gym
 import numpy as np
 
-
+# 继承gym的环境。用gym的框架套住airsim
 class AirSimDroneEnv(gym.Env):
     def __init__(self, ip_address, image_shape, env_config):
         self.image_shape = image_shape
@@ -31,6 +31,8 @@ class AirSimDroneEnv(gym.Env):
 
     def render(self):
         return self.get_obs()
+
+    """以下调用airsim的python接口"""
 
     def setup_flight(self):
         self.drone.reset()
